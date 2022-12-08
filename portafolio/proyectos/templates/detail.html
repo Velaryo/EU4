@@ -1,0 +1,21 @@
+{% extends "./base.html" %} {% block content %}
+
+{% if request.user.is_authenticated %}
+<h1>Holaaa  {{ request.user.username|upper }}</h1>
+<p>Detalles</p>
+{% endif %}
+
+foto: {{ object.foto }}
+<br>
+titulo: {{ object.titulo }}
+<br>
+desc: {{ object.desc }}
+<br>
+tags: {{ object.tags }}
+<br>
+url: {{ object.url }}
+<br>
+username: {{ object.user.username }}
+<br>
+
+{% endblock content %}

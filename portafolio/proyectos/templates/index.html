@@ -1,0 +1,47 @@
+{% extends "./base.html" %} {% block content %}
+
+{% if request.user.is_authenticated %}
+<h1>Holaaa {{ request.user.username|upper }}</h1>
+{% endif %}
+
+<a href="{% url 'create' %}">Crear nuevo proyecto</a>
+
+<h1>tabla</h1>
+{% for ob in page_obj %}
+	<a href="{% url 'update' ob.id %}">Editar</a>
+	<a href="{% url 'delete' ob.id %}">Eliminar</a>
+	<a href="{% url 'detail' ob.id %}">Ver detalles</a>
+	<br>
+	ID: {{ob.id}}
+	<br>
+	titulo: {{ob.tiulo}}
+	<br>
+	tags: {{ob.tags}}
+
+	<hr>
+
+
+
+{% comment %} <a href="{% url 'update_biblio' ob.id %}">Editar</a>
+<a href="{% url 'delete_biblio' ob.id %}">Eliminar</a>
+<a href="{% url 'detail_biblio' ob.id %}">Detalle</a> {% endcomment %}
+
+{% endfor %}
+
+
+{% if is_paginated %}
+<div>
+  <span>
+	{% if page_obj.has_previous %}
+	  <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+	{% endif %}
+	<span>Página{{ page_obj.number }}de{{ page_obj.paginator.num_pages }}</span>
+	{% if page_obj.has_next %}
+	  <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+	{% endif %}
+	
+  </span>
+</div>
+{% endif %}
+
+{% endblock content %}

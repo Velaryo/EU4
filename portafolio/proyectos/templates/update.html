@@ -1,0 +1,24 @@
+{% extends "./base.html" %} {% block content %}
+
+{% if request.user.is_authenticated %}
+<h1>Holaaa {{ request.user.username|upper }}</h1>
+{% endif %}
+
+
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Update" />
+</form>
+
+<br />
+
+<script>
+const inputs = document.querySelectorAll("input");
+
+inputs.forEach((input) => {
+  input.classList.add("form-control");
+});
+</script>
+
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "./base.html" %} {% block content %}
+
+{% if request.user.is_authenticated %}
+<h1>Holaaa {{ request.user.username|upper }}</h1>
+{% endif %}
+
+<form action="" method="POST" novalidate>
+	{% csrf_token %}
+	<p>Eliminar {{ object.title }} ?</p>
+	<button type="submit" value="Confirm">Eliminar</button>
+
+</form>
+
+{% endblock content %}
