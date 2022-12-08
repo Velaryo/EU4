@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Proyecto(models.Model):
 	foto = models.CharField(max_length=255)
-	tiulo = models.CharField(max_length=200)
+	titulo = models.CharField(max_length=200)
 	desc = models.TextField()
 	tags = models.CharField(max_length=200)
 	url = models.URLField()
@@ -12,3 +12,11 @@ class Proyecto(models.Model):
  
 	class Meta:
 		db_table = "proyectos"
+
+class Ip(models.Model):
+	ip = models.GenericIPAddressField()
+	created_at = models.DateTimeField(auto_now=True)
+
+	class Meta:
+		db_table = "ips"
+
