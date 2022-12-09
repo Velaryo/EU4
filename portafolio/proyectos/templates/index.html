@@ -1,0 +1,43 @@
+{% extends "./base2.html" %} {% block content %}
+
+{% if request.user.is_authenticated %}
+<h1>Holaaa {{ request.user.username|upper }}</h1>
+{% endif %}
+
+<a href="{% url 'create' %}">Crear nuevo proyecto</a>
+
+<h1>tabla</h1>
+{% for ob in listaProj_1 %}
+	<a href="{% url 'update' ob.id %}">Editar</a>
+	<a href="{% url 'delete' ob.id %}">Eliminar</a>
+	<a href="{% url 'detail' ob.id %}">Ver detalles</a>
+	<br>
+	ID: {{ob.id}}
+	<br>
+	titulo: {{ob.tiulo}}
+	<br>
+	tags: {{ob.tags}}
+
+	<hr>
+
+{% endfor %}
+
+
+{% if is_paginated %}
+<div>
+  <span>
+	{% if listaProj_1.has_previous %}
+	  <a href="?page={{ listaProj_1.previous_page_number }}">Anterior</a>
+	{% endif %}
+	<span>Página{{ listaProj_1.number }}de{{ listaProj_1.paginator.num_pages }}</span>
+	{% if listaProj_1.has_next %}
+	  <a href="?page={{ listaProj_1.next_page_number }}">Siguiente</a>
+	{% endif %}
+	
+  </span>
+</div>
+{% endif %}
+
+{% comment %} {% include 'ips.html' %} {% endcomment %}
+
+{% endblock content %}
