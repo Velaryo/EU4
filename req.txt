@@ -1,7 +1,0 @@
-django
-mysqlclient
-ipython
-celery
-redis
-django-ipware
-requests
