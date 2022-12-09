@@ -1,0 +1,24 @@
+{% extends "./base.html" %} {% block content %}
+{% load static %}
+
+<!-- page header -->
+<header id="home" class="header">
+	
+	<div class="header-content container">
+		<h2 class="header-title">
+			<span class="up">Eliminar el Proyecto</span>
+		</h2>
+		<form action="" method="POST" novalidate>
+			{% csrf_token %}
+			<h2 class="text-right">{{ object.titulo }} ?</h2>
+	
+			<button type="submit" value="Confirm" class="btn btn-primary btn-lg btn-block">Eliminar</button>
+		
+		</form>
+		
+		  
+		
+	</div>
+</header><!-- end of page header -->
+
+{% endblock %}
