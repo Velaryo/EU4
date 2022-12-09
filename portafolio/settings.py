@@ -42,6 +42,8 @@ INSTALLED_APPS = [
 	'proyectos.apps.ProyectosConfig',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://alvaro-huarca.up.railway.app']
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
