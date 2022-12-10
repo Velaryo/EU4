@@ -10,7 +10,7 @@ class Index(ListView):
 
 	model = Proyecto
 
-	paginate_by= 3
+	paginate_by= 6
 	page_name = 'listaProj_1'
 	template_name = 'index2.html'
 
